@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEmployeeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_empId}" for="empId" />
+                    <h:inputText id="empId" value="#{employeeController.selected.empId}" title="#{bundle.EditEmployeeTitle_empId}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_empId}"/>
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_empName}" for="empName" />
+                    <h:inputText id="empName" value="#{employeeController.selected.empName}" title="#{bundle.EditEmployeeTitle_empName}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_empName}"/>
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_empAge}" for="empAge" />
+                    <h:inputText id="empAge" value="#{employeeController.selected.empAge}" title="#{bundle.EditEmployeeTitle_empAge}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_empAge}"/>
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_empAddress}" for="empAddress" />
+                    <h:inputText id="empAddress" value="#{employeeController.selected.empAddress}" title="#{bundle.EditEmployeeTitle_empAddress}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_empAddress}"/>
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_empEmail}" for="empEmail" />
+                    <h:inputText id="empEmail" value="#{employeeController.selected.empEmail}" title="#{bundle.EditEmployeeTitle_empEmail}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_empEmail}"/>
+                    <h:outputLabel value="#{bundle.EditEmployeeLabel_empTel}" for="empTel" />
+                    <h:inputText id="empTel" value="#{employeeController.selected.empTel}" title="#{bundle.EditEmployeeTitle_empTel}" required="true" requiredMessage="#{bundle.EditEmployeeRequiredMessage_empTel}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{employeeController.update}" value="#{bundle.EditEmployeeSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEmployeeViewLink}"/>
+                <br />
+                <h:commandLink action="#{employeeController.prepareList}" value="#{bundle.EditEmployeeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEmployeeIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
