@@ -22,6 +22,7 @@ public class EmployeeController implements Serializable {
 
     private Employee current;
     private DataModel items = null;
+    private int a;
     @EJB
     private entity.EmployeeFacade ejbFacade;
     private PaginationHelper pagination;
